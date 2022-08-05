@@ -1,0 +1,70 @@
+<%= form_with(model: conservation, data: { controller: :maps, action: "google-maps-callback@window->maps#initializeMap"} ) do |form| %>
+  <% if conservation.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(conservation.errors.count, "error") %> prohibited this conservation from being saved:</h2>
+
+      <ul>
+        <% conservation.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="row">
+    
+    <div class="col-6 col-lg-6 background">
+      <div class="form-group my-2">
+    <%= form.label :name, style: "display: block" , class:"form-label" %>
+    <%= form.text_field :name,  class:"form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :address, style: "display: block", class:"form-label" %>
+    <%= form.text_field :address,  class:"form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :polygonid, style: "display: block", class:"form-label" %>
+    <%= form.number_field :polygonid ,  class:"form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :partid, style: "display: block", class:"form-label" %>
+    <%= form.number_field :partid,  class:"form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :pointid, style: "display: block", class:"form-label" %>
+    <%= form.number_field :pointid,  class:"form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :longitude, style: "display: block", class:"form-label" %>
+    <%= form.text_field :longitude, data: { target: "maps.longitude"},  class:"form-control"  %>
+  </div>
+
+  <div>
+    <%= form.label :latitude, style: "display: block", class:"form-label" %>
+    <%= form.text_field :latitude, data: { target: "maps.latitude"},  class:"form-control" %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block", class:"form-label" %>
+    <%= form.text_field :description,  class:"form-control" %>
+  </div>
+
+  <div class="mt-4">
+    <%= form.submit  class:"btn btn-dark" %>
+
+  </div>
+    </div>
+    <div class="col-6 col-lg-6 background2">
+      <p><%= content_tag :div,nil,data: {target: "maps.map"}, class: "c-map" %></p>
+    </div>
+  </div>
+
+  
+<% end %>
+
+
+

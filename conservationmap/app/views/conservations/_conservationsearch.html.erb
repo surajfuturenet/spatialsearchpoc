@@ -1,0 +1,23 @@
+<%= form_with(url: conservations_path, method: :get, data: {controller: "search-form",turbo_frame: "conservations", turbo_action: "advance"}) do |form| %>
+
+  
+
+  <div class="my-3 text-left">
+  	 <div class="row">
+  	 	<div class="col">
+  	 		<h4>Conservations</h4>
+  	 		<%= form.label :query, "Search by address of conservation:", class: "block mb-2" %>
+  	 	</div>
+  	 	
+  	 </div>
+  
+  <div class="row">
+    <div class="col">
+       <%= form.text_field :query, class: "rounded form-control", placHolder: "Search by address of conservation", data: {action: "input->search-form#search"} %>
+    </div>
+    <div class="col">
+      <%= form.submit 'Search', class: "btn btn-dark", id:"conservationsearch" %>
+    </div>
+  </div>
+</div>
+<% end %>
