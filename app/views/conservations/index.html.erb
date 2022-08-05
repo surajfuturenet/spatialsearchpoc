@@ -1,0 +1,51 @@
+<div data-controller="listing-map" data-action="google-maps-callback@window->listing-map#initializeMap">
+<div class="row">
+<div class="col-12"> 
+  <%= render "conservationsearch", conservations: @conservations %>
+  </div>
+</div>
+  <div class="row">
+  	
+    <div class="col-6 col-lg-6 background">
+      <%== pagy_bootstrap_nav(@pagy) %>
+          <table class="table table-striped table-hover table-bordered" data-listing-map-target="conservations">
+            <thead class="table-dark">
+              <tr>
+                <th scope="col">Address</th>
+                <th scope="col">Name</th>
+                <th scope="col">Longitude</th>
+                <th scope="col">Latitude</th>
+              </tr>
+            </thead>
+            <tbody>
+            	 <% @conservations.each do |conservation| %>
+               <tr data-longitude=<%=conservation.longitude%> data-latitude=<%=conservation.latitude%>>
+                <td><%= link_to conservation.address, conservation %></td>
+                <td><%= conservation.name %></td>
+                <td><%= conservation.longitude %></td>
+                <td><%= conservation.latitude %></td>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
+          
+          <p>
+          	<%= link_to "New conservation", new_conservation_path , class:"btn btn-dark" %>
+          </p>
+    </div>
+    <div class="col-6 col-lg-6">
+      <div class="my-6 p-3 c-map-home" data-listing-map-target="map">
+ 
+    </div>
+     
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
