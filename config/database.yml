@@ -84,4 +84,4 @@ test:
   <<: *default
   database: d3mfccepk6tfc1
   username: txzswhwsaokeir
-  password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
+  password: <%= ENV['CONSERVATIONS_DATABASE_PASSWORD'] %>
