@@ -82,6 +82,6 @@ test:
 #
 production:
   <<: *default
-  database: spatialsearchpoc_production
-  username: demo
-  password: <%= ENV["DEMO_DATABASE_PASSWORD"] %>
+  database: d3mfccepk6tfc1
+  username: txzswhwsaokeir
+  password: c5d73c9cfc690aa358f95aa29ceed05051b6e88d118b6c99851ffab183da7156
